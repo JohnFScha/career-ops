@@ -14,30 +14,30 @@ license: MIT
 
 Determine the mode from `$mode`:
 
-| Input | Mode |
-|-------|------|
-| (empty / no args) | `discovery` -- Show command menu |
-| JD text or URL (no sub-command) | **`auto-pipeline`** |
-| `oferta` | `oferta` |
-| `ofertas` | `ofertas` |
-| `contacto` | `contacto` |
-| `deep` | `deep` |
-| `interview-prep` | `interview-prep` |
-| `interview` | `interview` |
-| `eu-swe` | `regional/eu-swe` |
-| `pdf` | `pdf` |
-| `latex` | `latex` |
-| `training` | `training` |
-| `project` | `project` |
-| `tracker` | `tracker` |
-| `pipeline` | `pipeline` |
-| `apply` | `apply` |
-| `scan` | `scan` |
-| `batch` | `batch` |
-| `patterns` | `patterns` |
-| `followup` | `followup` |
-| `update` | `update` |
-| `cover` | `cover` |
+| Input                           | Mode                             |
+| ------------------------------- | -------------------------------- |
+| (empty / no args)               | `discovery` -- Show command menu |
+| JD text or URL (no sub-command) | **`auto-pipeline`**              |
+| `oferta`                        | `oferta`                         |
+| `ofertas`                       | `ofertas`                        |
+| `contacto`                      | `contacto`                       |
+| `deep`                          | `deep`                           |
+| `interview-prep`                | `interview-prep`                 |
+| `interview`                     | `interview`                      |
+| `eu-swe`                        | `regional/eu-swe`                |
+| `pdf`                           | `pdf`                            |
+| `latex`                         | `latex`                          |
+| `training`                      | `training`                       |
+| `project`                       | `project`                        |
+| `tracker`                       | `tracker`                        |
+| `pipeline`                      | `pipeline`                       |
+| `apply`                         | `apply`                          |
+| `scan`                          | `scan`                           |
+| `batch`                         | `batch`                          |
+| `patterns`                      | `patterns`                       |
+| `followup`                      | `followup`                       |
+| `update`                        | `update`                         |
+| `cover`                         | `cover`                          |
 
 **Auto-pipeline detection:** If `$mode` is not a known sub-command AND contains JD text (keywords: "responsibilities", "requirements", "qualifications", "about the role", "we're looking for", company name + role) or a URL to a JD, execute `auto-pipeline`.
 
@@ -86,16 +86,19 @@ Or paste a JD directly to run the full pipeline.
 After determining the mode, load the necessary files before executing:
 
 ### Modes that require `_shared.md` + their mode file:
+
 Read `modes/_shared.md` + `modes/{mode}.md`
 
 Applies to: `auto-pipeline`, `oferta`, `ofertas`, `pdf`, `contacto`, `apply`, `pipeline`, `scan`, `batch`
 
 ### Standalone modes (only their mode file):
+
 Read `modes/{mode}.md`
 
 Applies to: `tracker`, `deep`, `interview-prep`, `interview`, `regional/eu-swe`, `latex`, `training`, `project`, `patterns`, `followup`, `cover`
 
 ### Modes delegated to subagent:
+
 For `scan`, `apply` (with Playwright), and `pipeline` (3+ URLs): launch as Agent with the content of `_shared.md` + `modes/{mode}.md` injected into the subagent prompt.
 
 ```
